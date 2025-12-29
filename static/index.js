@@ -45,8 +45,8 @@ async function sharePost() {
     const cookieInput = document.getElementById('cookie').value.trim();
     const countInput = parseInt(document.getElementById('shareCount').value);
     const modeInput = document.getElementById('shareMode').value;
-    const maxWorkersInput = Math.min(parseInt(document.getElementById('maxWorkers').value), 3); // Cap at 3
-    const shareDelayInput = Math.max(parseFloat(document.getElementById('shareDelay').value), 0.5); // Min 0.5s
+    const maxWorkersInput = Math.min(parseInt(document.getElementById('maxWorkers').value), 3);
+    const shareDelayInput = Math.max(parseFloat(document.getElementById('shareDelay').value), 0.5);
     
     console.log('Inputs:', { linkInput, countInput, modeInput });
     
@@ -65,8 +65,8 @@ async function sharePost() {
         showResult('❌ Please enter a cookie', 'error');
         return;
     }
-    if (!countInput || countInput < 1 || countInput > 100000) {
-        showResult('❌ Count must be 1-100000 ', 'error');
+    if (!countInput || countInput < 1) {
+        showResult('❌ Enter a valid share count', 'error');
         return;
     }
 
@@ -170,3 +170,5 @@ function clearForm() {
     document.getElementById('status').classList.remove('active');
     document.getElementById('stats').innerHTML = '';
 }
+
+
